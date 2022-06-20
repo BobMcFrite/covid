@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les chiffres du COVID-19 en France
+{% endblock %}
+
+{% block body %}
+	<div class="album py-5" id="dettes">
+		<div class="container">
+            <h1 class="mb-5">Les chiffres du COVID-19 en France</h1>
+
+
+
+	<div class="album py-5">
+		<div class="container">
+            <h1 class="mb-5">Les chiffres du COVID-19 par département</h1>
+
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for data in data %}
+        <div class="col">
+          <div class="card shadow-lg h-100 m-2">
+            <div class="card-body">
+              <h5 class="card-title">{{ data.id }}</h5>
+              <p class="card-text">nom : <span class="badge bg-secondary">{{ data.nom }}</span></p>
+              <p class="card-text">prénom : <span class="badge bg-secondary">{{ data.prenom }}</span></p>
+              <a href="{{ path('app_dettes', {'dettes': data.id }) }}" class="btn btn-secondary" role="button" aria-pressed="true">Plus de chiffres</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
