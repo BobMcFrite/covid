@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Les chiffres du COVID-19 en France
+{% block title %}
+LES SUPER CLUBS
 {% endblock %}
 
 {% block body %}
@@ -8,38 +9,34 @@
 
 
 
+
+
 		<div class="container">
             <h1 class="mb-5">clubs</h1>
-{% for clubs in clubs %}
-			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-				<div class="col">
-					<div class="card shadow-sm h-100">
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+{% for clubs in clubs %}
+                <div class="col">
+					<div class="card shadow-lg h-100 m-2">
 						<div class="card-body">
 							<h5 class="card-title">id</h5>
-							<p class="card-text">id</p>
-						</div>
-                        <h3 class="card-footer bg-warning text-dark mx-2 rounded-pill">{{ clubs.id }}</h3>
-					</div>
-				</div>
-
-                <div class="col">
-					<div class="card shadow-sm">
-						<div class="card-body">
-							<h5 class="card-title">nom</h5>
+							<h3 class="card-footer bg-warning text-dark mx-2 rounded-pill">{{ clubs.id }}</h3>
+							<h5 class="card-title">email</h5>
+							<h3 class="card-footer bg-warning text-dark mx-2 rounded-pill">{{ clubs.email }}</h3>
 							<p class="card-text">nom</p>
 						</div>
                         <h3 class="card-footer bg-warning text-dark mx-2 rounded-pill">{{ clubs.nom }}</h3>
+												<a href="{{ path('app_department', {'department': clubs.id }) }}" class="btn btn-secondary" role="button" aria-pressed="true">Plus de chiffres</a>
+
 					</div>
-        				<a href="{{ path('app_department', {'department': clubs.id }) }}" class="btn btn-secondary" role="button" aria-pressed="true">Plus de chiffres</a>
+        				</div>
+								{% endfor %}
 				</div>
-{% endfor %}
 
-
-			</div>
 		</div>
+			</div>
 
-	</div>
+
   <div class="album py-5">
 		<div class="container">
             <h1 class="mb-5">Les gens</h1>
